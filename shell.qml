@@ -1,6 +1,7 @@
-// shell.qml
+import './modules/bar'
+
 import Quickshell
 
-Scope {
-  Bar {}
+ShellRoot {
+  Bar {} 
 }
