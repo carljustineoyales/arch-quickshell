@@ -1,6 +1,8 @@
 import Quickshell
 import QtQuick
 
+import "components"
+
 PanelWindow {
   id: root
 
@@ -10,17 +12,15 @@ PanelWindow {
     right: true
   }
 
+  implicitHeight: 28
+  color: "#000000"
 
-  implicitHeight: 30
+  Workspaces {
+    anchors.left: parent.left
+    anchors.verticalCenter: parent.verticalCenter
+  }
 
-  Rectangle {
-    anchors.fill: parent
-    color: "#000"
-
-    Text {
-      text: "Hello World"
-      anchors.centerIn: parent
-      color: "white"
-    }
+  Clock {
+    anchors.centerIn: parent
   }
 }
