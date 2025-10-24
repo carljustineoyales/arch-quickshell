@@ -4,7 +4,7 @@ import QtQuick
 Rectangle {
   id: root
   implicitWidth: row.implicitWidth + 16
-  implicitHeight: 20
+  implicitHeight: 26
   color: mouse.hovered ? "#474747" : "transparent"
   radius: 100
 
@@ -30,21 +30,25 @@ Rectangle {
     Text{
       color: "#FDFDFD"
       text: "Power"
+      font.pixelSize: 12
     }
 
     Text{
       color: "#FDFDFD"
       text: "Volume"
+      font.pixelSize: 12
     }
 
     Text{
       color: "#FDFDFD"
       text: "Bluetooth"
+      font.pixelSize: 12
     }
 
     Text{
       color: "#FDFDFD"
       text: "Network"
+      font.pixelSize: 12
     }
   }
 }

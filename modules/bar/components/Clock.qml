@@ -4,7 +4,7 @@ import QtQuick
 Rectangle {
   id: root
   implicitWidth: row.implicitWidth + 16
-  implicitHeight: 20  
+  implicitHeight: 26  
   color: mouse.hovered ? "#474747" : "transparent"
   radius: 100
 
@@ -30,12 +30,14 @@ Rectangle {
       id: date
       text: Qt.formatDateTime(clock.date, "MMM dd")
       color: "#FDFDFD"
+      font.pixelSize: 12
     }
 
     Text {
       id: time
       text: Qt.formatDateTime(clock.date, "hh:mm aP")
       color: "#FDFDFD"
+      font.pixelSize: 12
     }
   }
 

@@ -12,7 +12,7 @@ PanelWindow {
     right: true
   }
 
-  implicitHeight: 28
+  implicitHeight: 32
   color: "#000000"
 
   Workspaces {

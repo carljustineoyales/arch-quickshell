@@ -5,7 +5,7 @@ import QtQuick
 Rectangle {
   id: root
   implicitWidth: row.implicitWidth + 16
-  implicitHeight: 20
+  implicitHeight: 26
   color: mouse.hovered ? "#474747" : "transparent"
   radius: 100
 
