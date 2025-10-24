@@ -23,4 +23,9 @@ PanelWindow {
   Clock {
     anchors.centerIn: parent
   }
+
+  Tray{
+    anchors.right: parent.right
+    anchors.verticalCenter: parent.verticalCenter
+  }
 }

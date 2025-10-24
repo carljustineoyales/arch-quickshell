@@ -3,12 +3,12 @@ import QtQuick
 
 Rectangle {
   id: root
-  // color: "#212121"
-  // radius: 4
-  implicitWidth: text.implicitWidth + 16
-  // implicitHeight: text.implicitHeight + 8
+  implicitWidth: row.implicitWidth + 16
+  implicitHeight: 20
+  color: "#474747"
+  radius: 100
 
-  Row{
+  Row {
     id: row
     anchors.centerIn: parent
     spacing: 16
@@ -16,16 +16,16 @@ Rectangle {
     Text {
       id: date
       text: Qt.formatDateTime(clock.date, "MMM dd")
-      color: "white"
+      color: "#FDFDFD"
     }
 
     Text {
       id: time
       text: Qt.formatDateTime(clock.date, "hh:mm aP")
-      color: "white"
+      color: "#FDFDFD"
     }
   }
-  
+
   SystemClock {
     id: clock
     precision: SystemClock.Seconds
