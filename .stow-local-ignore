@@ -21,3 +21,4 @@ _darcs
 ^/commit_message.md
 ^/COMMIT_MESSAGE_TEMPLATE.md
 .config/references
+install-fonts.sh
