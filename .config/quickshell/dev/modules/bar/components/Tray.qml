@@ -1,6 +1,8 @@
 import Quickshell
 import QtQuick
 
+import "../../../icons"
+
 Rectangle {
   id: root
   implicitWidth: row.implicitWidth + 16
@@ -27,28 +29,10 @@ Rectangle {
     anchors.centerIn: parent
     spacing: 8
 
-    Text{
-      color: "#FDFDFD"
-      text: "Power"
-      font.pixelSize: 12
-    }
-
-    Text{
-      color: "#FDFDFD"
-      text: "Volume"
-      font.pixelSize: 12
-    }
-
-    Text{
-      color: "#FDFDFD"
-      text: "Bluetooth"
-      font.pixelSize: 12
-    }
-
-    Text{
-      color: "#FDFDFD"
-      text: "Network"
-      font.pixelSize: 12
-    }
+    // Icons
+    Volume {}
+    Bluetooth {}
+    Network {}
+    Power{}
   }
 }
