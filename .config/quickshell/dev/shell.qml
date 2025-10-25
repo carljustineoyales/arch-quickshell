@@ -3,5 +3,7 @@ import "modules/bar"
 import Quickshell
 
 ShellRoot {
-  Bar {} 
+  id: root
+
+  Bar {  } 
 }
