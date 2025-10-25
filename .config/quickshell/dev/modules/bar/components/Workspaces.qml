@@ -27,6 +27,7 @@ Rectangle {
     anchors.centerIn: parent
     spacing: 8
 
+    //  Hyperland Workspaces
     Repeater {
       model: Hyprland.workspaces
 

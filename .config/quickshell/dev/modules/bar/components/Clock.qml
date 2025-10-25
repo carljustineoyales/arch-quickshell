@@ -26,6 +26,7 @@ Rectangle {
     anchors.centerIn: parent
     spacing: 16
 
+    // Date
     Text {
       id: date
       text: Qt.formatDateTime(clock.date, "MMM dd")
@@ -33,6 +34,7 @@ Rectangle {
       font.pixelSize: 12
     }
 
+    //  Time
     Text {
       id: time
       text: Qt.formatDateTime(clock.date, "hh:mm aP")
@@ -40,6 +42,7 @@ Rectangle {
       font.pixelSize: 12
     }
   }
+
 
   SystemClock {
     id: clock
