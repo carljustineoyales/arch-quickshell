@@ -2,13 +2,15 @@ import Quickshell
 import Quickshell.Hyprland
 import QtQuick
 
-Rectangle {
+Item {
   id: root
+
+  // property var filteredWorkspaces: Hyprland.workspaces.filter(
+  //   workspace => workspace.id > 0 && !workspace.name.startsWith("spcial:")
+  // )
+
   implicitWidth: row.implicitWidth + 16
   implicitHeight: 26
-  color: mouse.hovered ? "#474747" : "transparent"
-  radius: 100
-
   // Event handlers
   // HoverHandler {
   //   id: stylus
@@ -30,6 +32,8 @@ Rectangle {
     //  Hyperland Workspaces
     Repeater {
       model: Hyprland.workspaces
+      
+      // TODO: Filter out Special workspace
 
       delegate: Rectangle {
         width: modelData.focused ? 30 : 6
@@ -41,5 +45,15 @@ Rectangle {
         }
       }
     }
+    z: 2
+  }
+
+  // Background
+  Rectangle{
+    implicitWidth: row.implicitWidth + 16
+    implicitHeight: 26
+    color: mouse.hovered ? "#474747" : "transparent"
+    radius: 100
+    z: 1
   }
 }
