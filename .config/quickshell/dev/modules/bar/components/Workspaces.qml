@@ -1,16 +1,52 @@
+import QtQuick
 import Quickshell
 import Quickshell.Hyprland
-import QtQuick
 
 Item {
   id: root
 
-  // property var filteredWorkspaces: Hyprland.workspaces.filter(
-  //   workspace => workspace.id > 0 && !workspace.name.startsWith("spcial:")
-  // )
+  /************
+  VARIABLES
+  ************/
+  // TODO: use variables for hex colors
+  implicitWidth: row.implicitWidth + 16;
+  implicitHeight: 26;
 
-  implicitWidth: row.implicitWidth + 16
-  implicitHeight: 26
+  property list<var> filteredWorkspaces: [];
+  property int workspaceSize: 6;
+  property int workspaceWidthActive: 30;
+  property int workspaceHeightActive: 8;
+
+  /************
+  FUNCTIONS
+  ************/
+
+  // Filter workspace when component loads
+  function filterWorkspaces()
+  {
+    // Remove special workspaces
+    root.filteredWorkspaces = Hyprland.workspaces.values.filter(
+      workspace => workspace.id > 0 && !workspace.name.startsWith("special:")
+    )
+  }
+
+  Connections {
+    target: Hyprland.workspaces
+    function onValuesChanged() {
+      // Run every time Hyprland updates
+      filterWorkspaces()
+    }
+  }
+
+  Component.onCompleted: {
+    filterWorkspaces()
+  }
+
+  /************
+  EVENTS
+  ************/
+
+  // FIXME: Fix stylus event handler
   // Event handlers
   // HoverHandler {
   //   id: stylus
@@ -24,32 +60,37 @@ Item {
     cursorShape: Qt.PointingHandCursor
   }
 
+  /************
+  LAYOUT
+  ************/
   Row {
     id: row
     anchors.centerIn: parent
     spacing: 8
+    z: 2
 
-    //  Hyperland Workspaces
+    // Hyperland Workspaces
     Repeater {
-      model: Hyprland.workspaces
+      model: root.filteredWorkspaces
       
-      // TODO: Filter out Special workspace
-
       delegate: Rectangle {
-        width: modelData.focused ? 30 : 6
-        height: modelData.focused ? 8 : 6
-        color: modelData.focused ? "#FDFDFD" : "#7F7F7F"
-        radius: 6
+        readonly property bool isUrgent: modelData.urgent
+        readonly property bool isFocused: modelData.focused
+        
+        width: isFocused ? workspaceWidthActive : workspaceSize
+        height: isFocused ? workspaceHeightActive : workspaceSize
+        color: isFocused ? "#FDFDFD" : isUrgent ? "#3584E4" : "#7F7F7F"
+        radius: workspaceSize
         transform: Translate {
-          y: (8 - height) / 2
+          // Vertical align items
+          y: (workspaceHeightActive - height) / 2
         }
       }
     }
-    z: 2
   }
-
+  // FIXME: Change hardcoded width and height
   // Background
-  Rectangle{
+  Rectangle {
     implicitWidth: row.implicitWidth + 16
     implicitHeight: 26
     color: mouse.hovered ? "#474747" : "transparent"
