@@ -46,19 +46,18 @@ Item {
   EVENTS
   ************/
 
-  // FIXME: Fix stylus event handler
-  // Event handlers
-  // HoverHandler {
-  //   id: stylus
-  //   acceptedDevices: Pointer.Stylus
-  //   cursorShape: Qt.CrossCursor
-  // }
+  HoverHandler {
+      id: stylus
+      acceptedDevices: PointerDevice.Stylus
+      cursorShape: Qt.CrossCursor
+  }
 
   HoverHandler {
-    id: mouse
-    acceptedDevices: PointerDevice.Mouse | PointerDevice.TouchPad
-    cursorShape: Qt.PointingHandCursor
+      id: mouse
+      acceptedDevices: PointerDevice.Mouse | PointerDevice.TouchPad
+      cursorShape: Qt.PointingHandCursor
   }
+
 
   /************
   LAYOUT
@@ -93,7 +92,7 @@ Item {
   Rectangle {
     implicitWidth: row.implicitWidth + 16
     implicitHeight: 26
-    color: mouse.hovered ? "#474747" : "transparent"
+    color: (mouse.hovered || stylus.hovered) ? "#474747" : "transparent"
     radius: 100
     z: 1
   }
