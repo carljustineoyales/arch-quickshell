@@ -31,8 +31,8 @@ Item {
   }
 
   Connections {
-    target: Hyprland.workspaces
-    function onValuesChanged() {
+    target: Hyprland
+    function onRawEvent() {
       // Run every time Hyprland updates
       filterWorkspaces()
     }
