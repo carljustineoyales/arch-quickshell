@@ -30,9 +30,9 @@ Rectangle {
     spacing: 8
 
     // Icons
-    Volume {}
-    Bluetooth {}
-    Network {}
-    Power{}
+    VolumeIcon{}
+    BluetoothIcon{}
+    NetworkIcon{}
+    PowerIcon{}
   }
 }
