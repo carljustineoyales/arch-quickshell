@@ -3,6 +3,10 @@ import QtQuick
 
 import "../../../icons"
 
+// TODO: Seperate the background
+// TODO: Apply the HoverHandler fix
+// TODO: Use variables for hex colors
+// TODO: Change hardcoded width and height
 Rectangle {
   id: root
   implicitWidth: row.implicitWidth + 16
