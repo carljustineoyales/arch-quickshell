@@ -16,6 +16,7 @@ Item {
   property int workspaceSize: 6;
   property int workspaceWidthActive: 30;
   property int workspaceHeightActive: 8;
+  property string bgColor: "transparent"
 
   /************
   FUNCTIONS
@@ -41,23 +42,6 @@ Item {
   Component.onCompleted: {
     filterWorkspaces()
   }
-
-  /************
-  EVENTS
-  ************/
-
-  HoverHandler {
-      id: stylus
-      acceptedDevices: PointerDevice.Stylus
-      cursorShape: Qt.CrossCursor
-  }
-
-  HoverHandler {
-      id: mouse
-      acceptedDevices: PointerDevice.Mouse | PointerDevice.TouchPad
-      cursorShape: Qt.PointingHandCursor
-  }
-
 
   /************
   LAYOUT
@@ -92,7 +76,7 @@ Item {
   Rectangle {
     implicitWidth: row.implicitWidth + 16
     implicitHeight: 26
-    color: (mouse.hovered || stylus.hovered) ? "#474747" : "transparent"
+    color: bgColor
     radius: 100
     z: 1
   }
