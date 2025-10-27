@@ -31,14 +31,14 @@ Item{
     stdout: StdioCollector {
       onStreamFinished: {
         let device = this.text
-          console.log("Network:",device)
-          if(device.includes("ethernet") && device.includes("connected")){
-            networkType = "lan"
-          } else if ((device.includes("wifi:") || device.includes("bt:")) && device.includes("connected")){
-            networkType = "wireless"
-          }
-          else {
-            networkType = "disconnected"
+        console.log("Network:",device)
+        if(device.includes("ethernet") && device.includes("connected")){
+          networkType = "lan"
+        } else if ((device.includes("wifi:") || device.includes("bt:")) && device.includes("connected")){
+          networkType = "wireless"
+        }
+        else {
+          networkType = "disconnected"
         }
       }
     }
