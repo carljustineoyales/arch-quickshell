@@ -46,6 +46,7 @@ Item {
   /************
   LAYOUT
   ************/
+ 
   Row {
     id: row
     anchors.centerIn: parent

@@ -1,17 +1,19 @@
 import Quickshell
 import QtQuick
 
-// TODO: Seperate the background
 // TODO: Apply the HoverHandler fix
 // TODO: Use variables for hex colors
 // TODO: Change hardcoded width and height
-Rectangle {
+Item{
   id: root
-  implicitWidth: row.implicitWidth + 16
-  implicitHeight: 26  
-  color: mouse.hovered ? "#474747" : "transparent"
-  radius: 100
 
+  /************
+  VARIABLES
+  ************/
+
+  implicitWidth: row.implicitWidth + 16;
+  implicitHeight: 26;
+  
   // Event handlers
   // HoverHandler {
   //   id: stylus
@@ -25,10 +27,24 @@ Rectangle {
     cursorShape: Qt.PointingHandCursor
   }
 
+  /************
+  FUNCTIONS
+  ************/
+
+  SystemClock {
+    id: clock
+    precision: SystemClock.Seconds
+  }
+
+  /************
+  LAYOUT
+  ************/
+ 
   Row {
     id: row
     anchors.centerIn: parent
     spacing: 16
+    z:2
 
     // Date
     Text {
@@ -48,8 +64,12 @@ Rectangle {
   }
 
 
-  SystemClock {
-    id: clock
-    precision: SystemClock.Seconds
+  // Background
+  Rectangle {
+    implicitWidth: row.implicitWidth + 16
+    implicitHeight: 26  
+    color: mouse.hovered ? "#474747" : "transparent"
+    radius: 100
+    z: 1
   }
 }
